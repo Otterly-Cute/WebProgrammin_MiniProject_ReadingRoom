@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reading Room</title>
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         BACKGROUND VIDEO
+         ========================================== -->
+    <video id="backgroundVideo" autoplay muted loop>
+        <source src="videos/video1.mp4" type="video/mp4">
+    </video>
+
+    <!-- Dark overlay -->
+    <div class="page-overlay">
+
+        <!-- ==========================================
+             HEADER + CONTROLS
+             ========================================== -->
+        <div class="top-panel">
+
+            <h1>Reading Room</h1>
+
+            <div class="controls">
+
+                <!-- BLOCK 1 -->
+                <div class="control-block">
+
+                    <button id="randomVideoBtn">
+                        Random
+                    </button>
+
+                    <select id="videoSelect">
+                        <option>Library</option>
+                        <option>Castle</option>
+                        <option>Rain</option>
+                    </select>
+
+                </div>
+
+                <!-- BLOCK 2 -->
+                <div class="control-block">
+
+                    <button id="randomAnimationBtn">
+                        Random
+                    </button>
+
+                    <select id="animationSelect">
+                        <option>Butterflies</option>
+                        <option>Sparkles</option>
+                        <option>Fireflies</option>
+                    </select>
+
+                </div>
+
+                <!-- BLOCK 3 -->
+                <div class="control-block">
+
+                    <button id="randomSoundBtn">
+                        Random
+                    </button>
+
+                    <button id="soundDropdownBtn">
+                        Ambient Sounds
+                    </button>
+
+                    <div id="soundDropdown" class="dropdown-panel">
+
+                        <div class="sound-item">
+
+                            <label>
+                                <input type="checkbox">
+                                Rain
+                            </label>
+
+                            <input type="range"
+                                   min="0"
+                                   max="100"
+                                   value="50">
+
+                        </div>
+
+                        <div class="sound-item">
+
+                            <label>
+                                <input type="checkbox">
+                                Fireplace
+                            </label>
+
+                            <input type="range"
+                                   min="0"
+                                   max="100"
+                                   value="50">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- BLOCK 4 -->
+                <div class="control-block">
+
+                    <button id="randomMusicBtn">
+                        Random
+                    </button>
+
+                    <select id="musicSelect">
+                        <option>Music 1</option>
+                        <option>Music 2</option>
+                    </select>
+
+                    <input
+                        id="musicVolume"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="50">
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==========================================
+             QUOTE BOX
+             ========================================== -->
+        <div class="quote-box">
+
+            <p id="quoteText">
+                "A reader lives a thousand lives before he dies."
+            </p>
+
+            <p id="quoteSource">
+                — George R. R. Martin
+            </p>
+
+            <div class="quote-buttons">
+
+                <button id="previousQuote">
+                    <i class="fa-solid fa-backward"></i>
+                </button>
+
+                <button id="pauseQuote">
+                    <i class="fa-solid fa-pause"></i>
+                </button>
+
+                <button id="playQuote">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+
+                <button id="nextQuote">
+                    <i class="fa-solid fa-forward"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+             CLOCK BOX
+             ========================================== -->
+        <div class="clock-container">
+
+            <!-- Animation sits above clock -->
+            <div id="animationContainer">
+
+            </div>
+
+            <div class="clock-box">
+
+                <div id="clock">
+                    00:00
+                </div>
+
+                <div class="clock-buttons">
+
+                    <button id="resetClock">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </button>
+
+                    <button id="startClock">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+
+                    <button id="pauseClock">
+                        <i class="fa-solid fa-pause"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
