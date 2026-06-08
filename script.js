@@ -274,11 +274,18 @@ const sounds = [
         file: "ambience/amb_waterfall.mp3"
     },
     {
-        name: "Rustling Leaves",
-        file: "ambience/amb_rustling_leaves.mp3"
+        name: "Wind Chimes",
+        file: "ambience/amb_chimes.mp3"
     }
 ];
 
+sounds.forEach(sound => {
+
+    sound.audio =
+        new Audio(sound.file);
+
+    sound.audio.loop = true;
+});
 
 /* ==================================
    SOUND DROPDOWN
@@ -318,6 +325,63 @@ sounds.forEach((sound, index) => {
     soundDropdown.appendChild(soundItem);
 });
 
+sounds.forEach((sound, index) => {
+
+    const checkbox =
+        document.getElementById(
+            `soundCheckbox${index}`
+        );
+
+    checkbox.addEventListener(
+        "change",
+        () => {
+
+            if (checkbox.checked) {
+
+                sound.audio.play();
+
+            } else {
+
+                sound.audio.pause();
+                sound.audio.currentTime = 0;
+            }
+        }
+    );
+
+});
+
+
+/* VOLUME STUFF*/
+
+sounds.forEach((sound, index) => {
+
+    const slider =
+        document.getElementById(
+            `volumeSlider${index}`
+        );
+
+    slider.addEventListener(
+        "input",
+        () => {
+
+            sound.audio.volume =
+                slider.value / 100;
+
+        }
+    );
+
+});
+
+sounds.forEach(sound => {
+
+    sound.audio =
+        new Audio(sound.file);
+
+    sound.audio.loop = true;
+
+    sound.audio.volume = 0.5;
+});
+
 /* Open/close dropdown */
 
 soundButton.addEventListener(
@@ -348,3 +412,67 @@ document.addEventListener(
         }
     }
 );
+
+/* Random ambient sounds */
+
+const randomSoundBtn =
+    document.getElementById(
+        "randomSoundBtn"
+    );
+
+randomSoundBtn.addEventListener(
+    "click",
+    randomAmbientSounds
+);
+
+function randomAmbientSounds() {
+
+    // Stop all sounds first
+    sounds.forEach(sound => {
+
+        sound.audio.pause();
+        sound.audio.currentTime = 0;
+    });
+
+    // Uncheck all checkboxes
+    sounds.forEach((sound, index) => {
+
+        const checkbox =
+            document.getElementById(
+                `soundCheckbox${index}`
+            );
+
+        checkbox.checked = false;
+    });
+
+    // Pick first random sound
+    const first =
+        Math.floor(
+            Math.random() * sounds.length
+        );
+
+    // Pick second random sound
+    let second;
+
+    do {
+
+        second =
+            Math.floor(
+                Math.random() * sounds.length
+            );
+
+    } while (second === first);
+
+    // Activate both
+    [first, second].forEach(index => {
+
+        const checkbox =
+            document.getElementById(
+                `soundCheckbox${index}`
+            );
+
+        checkbox.checked = true;
+
+        sounds[index].audio.play();
+    });
+}
