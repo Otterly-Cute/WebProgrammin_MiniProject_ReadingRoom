@@ -234,6 +234,53 @@ document
 });
 
 /* ==================================
+   Array of ambience sounds
+   ================================== */
+const sounds = [
+    {
+        name: "Forest",
+        file: "ambience/amb_forest.mp3"
+    },
+    {
+        name: "Fireplace",
+        file: "ambience/amb_fire_crackle.mp3"
+    },
+    {
+        name: "Rain",
+        file: "ambience/amb_rain.mp3"
+    },
+    {
+        name: "Thunder",
+        file: "ambience/amb_thunder.mp3"
+    },
+    {
+        name: "Wind",
+        file: "ambience/amb_wind.mp3"
+    },
+    {
+        name: "Swords",
+        file: "ambience/amb_sword.mp3"
+    },
+    {
+        name: "Water Dripping",
+        file: "ambience/amb_drips.mp3"
+    },
+    {
+        name: "Crickets",
+        file: "ambience/amb_crickets.mp3"
+    },
+    {
+        name: "Waterfall",
+        file: "ambience/amb_waterfall.mp3"
+    },
+    {
+        name: "Rustling Leaves",
+        file: "ambience/amb_rustling_leaves.mp3"
+    }
+];
+
+
+/* ==================================
    SOUND DROPDOWN
    ================================== */
 
@@ -243,9 +290,33 @@ document.getElementById(
 );
 
 const soundDropdown =
-document.getElementById(
-    "soundDropdown"
-);
+    document.getElementById("soundDropdown");
+console.log(sounds);
+sounds.forEach((sound, index) => {
+
+    const soundItem =
+        document.createElement("div");
+
+    soundItem.classList.add("sound-item");
+
+    soundItem.innerHTML = `
+        <label>
+            <input
+                type="checkbox"
+                id="soundCheckbox${index}">
+            ${sound.name}
+        </label>
+
+        <input
+            type="range"
+            id="volumeSlider${index}"
+            min="0"
+            max="100"
+            value="50">
+    `;
+
+    soundDropdown.appendChild(soundItem);
+});
 
 /* Open/close dropdown */
 
