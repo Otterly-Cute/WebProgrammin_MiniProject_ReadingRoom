@@ -3,11 +3,31 @@
    ================================== */
 
 const videos = [
-    "videos/video1.mp4",
-    "videos/video2.mp4",
-    "videos/video3.mp4"
+    {
+        name: "Snowy Study",
+        file: "videos/snowy_study.mp4"
+    },
+    {
+        name: "Cozy Library",
+        file: "videos/cozy_library.mp4"
+    },
+    {
+        name: "Rainy Road",
+        file: "videos/rainy_road.mp4"
+    },
+    {
+        name: "Thunder Study",
+        file: "videos/thunder_study.mp4"
+    },
+    {
+        name: "Snowy Library",
+        file: "videos/snowy_library.mp4"
+    },
+    {
+        name: "Starry Balcony",
+        file: "videos/starry_balcony.mp4"
+    }
 ];
-
 /* ==================================
    RANDOM VIDEO ON PAGE LOAD
    ================================== */
@@ -21,10 +41,94 @@ function randomVideo() {
         Math.floor(Math.random() * videos.length);
 
     backgroundVideo.src =
-        videos[randomIndex];
+        videos[randomIndex].file;
 }
 
 randomVideo();
+
+/* ==================================
+   Fill in the dropdown for video
+   ================================== */
+const videoSelect =
+    document.getElementById("videoSelect");
+
+/* Add all videos to dropdown */
+
+videos.forEach((video, index) => {
+
+    const option =
+        document.createElement("option");
+
+    option.value = index;
+
+    option.textContent = video.name;
+
+    videoSelect.appendChild(option);
+});
+
+
+/* ==================================
+   Change video
+   ================================== */
+
+function setVideo(index) {
+
+    backgroundVideo.src =
+        videos[index].file;
+
+    videoSelect.value = index;
+
+    backgroundVideo.load();
+
+    backgroundVideo.play();
+}
+
+/* ==================================
+   Dropdown function for video
+   ================================== */
+videoSelect.addEventListener(
+    "change",
+    () => {
+
+        const selectedIndex =
+            videoSelect.value;
+
+        setVideo(selectedIndex);
+    }
+);
+
+/* ==================================
+   Random button for video
+   ================================== */
+const randomVideoBtn =
+    document.getElementById(
+        "randomVideoBtn"
+    );
+
+randomVideoBtn.addEventListener(
+    "click",
+    () => {
+
+        const randomIndex =
+            Math.floor(
+                Math.random() *
+                videos.length
+            );
+
+        setVideo(randomIndex);
+    }
+);
+
+/* ==================================
+   Random start video
+   ================================== */
+const startIndex =
+    Math.floor(
+        Math.random() *
+        videos.length
+    );
+
+setVideo(startIndex);
 
 /* ==================================
    DIGITAL CLOCK
