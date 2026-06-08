@@ -26,6 +26,38 @@ const videos = [
     {
         name: "Starry Balcony",
         file: "videos/starry_balcony.mp4"
+    },
+    {
+        name: "Ancient Baths",
+        file: "videos/ancient_baths.mp4"
+    },
+    {
+        name: "Hidden Oasis",
+        file: "videos/hidden_oasis.mp4"
+    },
+    {
+        name: "Sunset Fireplace",
+        file: "videos/sunset_fireplace.mp4"
+    },
+    {
+        name: "Castle Fireplace",
+        file: "videos/castle_fireplace.mp4"
+    },
+    {
+        name: "Magic Forest",
+        file: "videos/magic_forest.mp4"
+    },
+    {
+        name: "Castle Gardens",
+        file: "videos/castle_gardens.mp4"
+    },
+    {
+        name: "Training Grounds",
+        file: "videos/training_grounds.mp4"
+    },
+    {
+        name: "Dungeon Cell",
+        file: "videos/dungeon_cell.mp4"
     }
 ];
 /* ==================================
