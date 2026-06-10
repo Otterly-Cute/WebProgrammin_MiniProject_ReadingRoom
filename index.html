@@ -38,82 +38,69 @@
 
             <div class="controls">
 
-                <!-- BLOCK 1 -->
                 <div class="control-block">
 
-                    <button id="randomVideoBtn">
-                        Random
-                    </button>
+                    <p class="control-title">
+                        Scene
+                    </p>
 
-                    <select id="videoSelect">
-                    </select>
+                    <div class="control-row">
 
-                </div>
+                        <button id="randomVideoBtn">
+                            Random
+                        </button>
+
+                        <select id="videoSelect">
+                        </select>
+
+                    </div>
+                </div> 
 
                 <!-- BLOCK 2 -->
                 <div class="control-block">
 
-                    <button id="randomAnimationBtn">
-                        Random
-                    </button>
+                    <p class="control-title">
+                        Sound Effects
+                    </p>
+                    
+                    <div class="control-row">
 
-                    <select id="animationSelect">
-                        <option>Butterflies</option>
-                        <option>Sparkles</option>
-                        <option>Fireflies</option>
-                        <option>Fireflies</option>
-                        <option>Fireflies</option>
-                        <option>Fireflies</option>
-                        <option>Fireflies</option>
-                        <option>Fireflies</option>
-                        <option>Fireflies</option>
-                        <option>Fireflies</option>
-                    </select>
+                        <button id="randomSoundBtn">
+                            Random
+                        </button>
 
+                        <button id="soundDropdownBtn">
+                            Ambient Sounds
+                        </button>
+
+                        <div id="soundDropdown" class="dropdown-panel">
+                        </div>
+                    </div>
                 </div>
 
                 <!-- BLOCK 3 -->
                 <div class="control-block">
 
-                    <button id="randomSoundBtn">
-                        Random
-                    </button>
+                    <p class="control-title">
+                        Music
+                    </p>
 
-                    <button id="soundDropdownBtn">
-                        Ambient Sounds
-                    </button>
+                    <div class="control-row">
 
-                    <div id="soundDropdown" class="dropdown-panel">
+                        <button id="randomMusicBtn">
+                            Random
+                        </button>
+
+                        <select id="musicSelect">
+                        </select>
+
+                        <input
+                            id="musicVolume"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="50">
                     </div>
-
-                </div>
-
-                <!-- BLOCK 4 -->
-                <div class="control-block">
-
-                    <button id="randomMusicBtn">
-                        Random
-                    </button>
-
-                    <select id="musicSelect">
-                        <option>Music 1</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                        <option>Music 2</option>
-                    </select>
-
-                    <input
-                        id="musicVolume"
-                        type="range"
-                        min="0"
-                        max="100"
-                        value="50">
 
                 </div>
 
@@ -139,12 +126,8 @@
                     <i class="fa-solid fa-backward"></i>
                 </button>
 
-                <button id="pauseQuote">
+                <button id="pausePlayQuote">
                     <i class="fa-solid fa-pause"></i>
-                </button>
-
-                <button id="playQuote">
-                    <i class="fa-solid fa-play"></i>
                 </button>
 
                 <button id="nextQuote">

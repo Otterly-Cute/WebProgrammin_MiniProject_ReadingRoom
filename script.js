@@ -476,3 +476,173 @@ function randomAmbientSounds() {
         sounds[index].audio.play();
     });
 }
+
+
+/* ==================================
+   MUSIC... LaLaLaLaLaaaa
+   ================================== */
+
+/* ==================================
+   MUSIC DATA
+   ================================== */
+
+const music = [
+    {
+        name: "Medieval",
+        file: "music/medieval.mp3"
+    },
+    {
+        name: "Mystical",
+        file: "music/mystical.mp3"
+    }
+];
+
+/* ==================================
+   CREATE AUDIO OBJECTS
+   ================================== */
+
+music.forEach(track => {
+
+    track.audio =
+        new Audio(track.file);
+
+    track.audio.loop = true;
+
+    // Default volume = 50%
+    track.audio.volume = 0.5;
+});
+
+/* ==================================
+   MUSIC ELEMENTS
+   ================================== */
+
+const musicSelect =
+    document.getElementById("musicSelect");
+
+const randomMusicBtn =
+    document.getElementById("randomMusicBtn");
+
+const musicVolume =
+    document.getElementById("musicVolume");
+
+/* ==================================
+   FILL MUSIC DROPDOWN
+   ================================== */
+
+music.forEach((track, index) => {
+
+    const option =
+        document.createElement("option");
+
+    option.value = index;
+
+    option.textContent = track.name;
+
+    musicSelect.appendChild(option);
+});
+
+/* ==================================
+   CURRENT MUSIC TRACK
+   ================================== */
+
+let currentMusic = null;
+
+/* ==================================
+   CHANGE MUSIC
+   ================================== */
+
+function setMusic(index) {
+
+    // Stop previous track
+
+    if (currentMusic) {
+
+        currentMusic.pause();
+
+        currentMusic.currentTime = 0;
+    }
+
+    // Set new track
+
+    currentMusic =
+        music[index].audio;
+
+    // Apply current volume
+
+    currentMusic.volume =
+        musicVolume.value / 100;
+
+    // Play track
+
+    currentMusic.play();
+
+    // Update dropdown
+
+    musicSelect.value = index;
+}
+
+/* ==================================
+   DROPDOWN FUNCTIONALITY
+   ================================== */
+
+musicSelect.addEventListener(
+    "change",
+    () => {
+
+        setMusic(
+            musicSelect.value
+        );
+    }
+);
+
+/* ==================================
+   RANDOM BUTTON
+   ================================== */
+
+randomMusicBtn.addEventListener(
+    "click",
+    () => {
+
+        const randomIndex =
+            Math.floor(
+                Math.random() *
+                music.length
+            );
+
+        setMusic(randomIndex);
+    }
+);
+
+/* ==================================
+   VOLUME SLIDER
+   ================================== */
+
+musicVolume.addEventListener(
+    "input",
+    () => {
+
+        const volume =
+            musicVolume.value / 100;
+
+        music.forEach(track => {
+
+            track.audio.volume =
+                volume;
+        });
+    }
+);
+
+/* ==================================
+   RANDOM MUSIC ON PAGE LOAD
+   ================================== */
+
+const randomStartMusic =
+    Math.floor(
+        Math.random() *
+        music.length
+    );
+
+setMusic(randomStartMusic);
+
+
+
