@@ -592,12 +592,44 @@ function randomAmbientSounds() {
 
 const music = [
     {
-        name: "Medieval",
-        file: "music/medieval.mp3"
+        name: "Strategic Betrayals",
+        file: "music/strategicBetrayals.mp3"
+    },
+    {
+        name: "Luminary",
+        file: "music/luminary.mp3"
     },
     {
         name: "Mystical",
         file: "music/mystical.mp3"
+    },
+    {
+        name: "Eternal Meadow",
+        file: "music/eternalMeadow.mp3"
+    },
+    {
+        name: "Nuvole Bianche",
+        file: "music/nuvoleBianche.mp3"
+    },
+    {
+        name: "Kingdom",
+        file: "music/kingdom.mp3"
+    },
+    {
+        name: "Ordinary",
+        file: "music/ordinary.mp3"
+    },
+    {
+        name: "Breath of Quiet Hills",
+        file: "music/breathOfQuietHills.mp3"
+    },
+    {
+        name: "Codex",
+        file: "music/codex.mp3"
+    },
+    {
+        name: "Mountain Hike",
+        file: "music/mountainHike.mp3"
     }
 ];
 
