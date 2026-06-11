@@ -137,9 +137,16 @@ const randomVideoBtn =
         "randomVideoBtn"
     );
 
+const randomVideoIcon =
+    document.getElementById(
+        "randomVideoIcon"
+    );
+
 randomVideoBtn.addEventListener(
     "click",
     () => {
+
+        shakeIcon(randomVideoBtn)
 
         const randomIndex =
             Math.floor(
@@ -148,6 +155,8 @@ randomVideoBtn.addEventListener(
             );
 
         setVideo(randomIndex);
+
+
     }
 );
 
@@ -188,50 +197,133 @@ function updateClock() {
         `${mins}:${secs}`;
 }
 
-/* Start */
+/* Start/Pause */
 
-document
-.getElementById("startClock")
-.addEventListener("click", () => {
+const startClockBtn =
+    document.getElementById(
+        "startClock"
+    );
 
-    if(clockRunning) return;
+const playIcon =
+    document.getElementById(
+        "playIcon"
+    );
 
-    clockRunning = true;
 
-    timer = setInterval(() => {
+const resetIcon =
+    document.getElementById(
+        "resetIcon"
+    );
 
-        seconds++;
+function animateIcon(icon) {
 
-        updateClock();
+    icon.classList.remove(
+        "icon-pop"
+    );
 
-    }, 1000);
-});
+    void icon.offsetWidth;
 
-/* Pause */
+    icon.classList.add(
+        "icon-pop"
+    );
+}
 
-document
-.getElementById("pauseClock")
-.addEventListener("click", () => {
+function shakeIcon(icon) {
 
-    clockRunning = false;
+    icon.classList.remove(
+        "icon-shake"
+    );
 
-    clearInterval(timer);
-});
+    void icon.offsetWidth;
+
+    icon.classList.add(
+        "icon-shake"
+    );
+}
+
+
+startClockBtn.addEventListener(
+    "click",
+    () => {
+
+        if (!clockRunning) {
+
+            // START CLOCK
+
+            clockRunning = true;
+
+            timer = setInterval(() => {
+
+                seconds++;
+
+                updateClock();
+
+            }, 1000);
+
+            // Change icon
+
+            playIcon.classList.remove(
+                "fa-play"
+            );
+
+            playIcon.classList.add(
+                "fa-pause"
+            );
+
+            animateIcon(playIcon);
+
+        } else {
+
+            // PAUSE CLOCK
+
+            clockRunning = false;
+
+            clearInterval(timer);
+
+            // Change icon
+
+            playIcon.classList.remove(
+                "fa-pause"
+            );
+
+            playIcon.classList.add(
+                "fa-play"
+            );
+
+            animateIcon(playIcon);
+        }
+    }
+);
+
+
 
 /* Reset */
 
 document
 .getElementById("resetClock")
-.addEventListener("click", () => {
+.addEventListener(
+    "click",
+    () => {
 
-    seconds = 0;
+        clearInterval(timer);
 
-    updateClock();
+        clockRunning = false;
 
-    clearInterval(timer);
+        seconds = 0;
 
-    clockRunning = false;
-});
+        updateClock();
+
+        playIcon.classList.remove(
+            "fa-pause"
+        );
+
+        playIcon.classList.add(
+            "fa-play"
+        );
+
+        animateIcon(resetIcon);
+    }
+);
 
 /* ==================================
    Array of ambience sounds
@@ -315,6 +407,7 @@ sounds.forEach((sound, index) => {
         </label>
 
         <input
+            class="volume-slider"
             type="range"
             id="volumeSlider${index}"
             min="0"
@@ -384,14 +477,20 @@ sounds.forEach(sound => {
 
 /* Open/close dropdown */
 
+
+
 soundButton.addEventListener(
     "click",
     () => {
 
+        const isOpen =
+            soundDropdown.style.display === "block";
+
         soundDropdown.style.display =
-            soundDropdown.style.display === "block"
-            ? "none"
-            : "block";
+            isOpen ? "none" : "block";
+
+        
+        
     }
 );
 
@@ -413,6 +512,9 @@ document.addEventListener(
     }
 );
 
+
+
+
 /* Random ambient sounds */
 
 const randomSoundBtn =
@@ -427,6 +529,8 @@ randomSoundBtn.addEventListener(
 
 function randomAmbientSounds() {
 
+    shakeIcon(randomSoundBtn)
+    
     // Stop all sounds first
     sounds.forEach(sound => {
 
@@ -603,6 +707,8 @@ randomMusicBtn.addEventListener(
     "click",
     () => {
 
+        shakeIcon(randomMusicBtn)
+
         const randomIndex =
             Math.floor(
                 Math.random() *
@@ -642,7 +748,227 @@ const randomStartMusic =
         music.length
     );
 
-setMusic(randomStartMusic);
+musicSelect.value =
+    randomStartMusic;
+
+    function startInitialMusic() {
+
+    setMusic(randomStartMusic);
+
+    document.removeEventListener(
+        "click",
+        startInitialMusic
+    );
+}
+
+document.addEventListener(
+    "click",
+    startInitialMusic,
+    { once: true }
+);
 
 
 
+
+/* ==================================
+   Quote Box
+   ================================== */
+
+const quotes = [
+
+    {
+        text: "There you are. I've been looking for you.",
+        source: "A Court of Thorns and Roses"
+    },
+
+    {
+        text: "To the stars who listen and the dreams that are answered.",
+        source: "A Court of Mist and Fury"
+    },
+
+    {
+        text: "You are my home and my adventure all at once.",
+        source: "Romantasy Quote"
+    }
+
+];
+
+const quotePreviousIcon =
+    document.getElementById(
+        "quotePreviousIcon"
+    );
+
+const quoteNextIcon =
+    document.getElementById(
+        "quoteNextIcon"
+    );
+
+
+function showQuote(index) {
+
+    document.getElementById(
+        "quoteText"
+    ).textContent =
+        quotes[index].text;
+
+    document.getElementById(
+        "quoteSource"
+    ).textContent =
+        quotes[index].source;
+}
+
+currentQuote =
+    Math.floor(
+        Math.random() *
+        quotes.length
+    );
+
+showQuote(currentQuote);
+
+document
+.getElementById("nextQuote")
+.addEventListener(
+    "click",
+    () => {
+
+        currentQuote++;
+
+        if (
+            currentQuote >=
+            quotes.length
+        ) {
+
+            currentQuote = 0;
+        }
+
+        showQuote(currentQuote);
+
+        animateIcon(quoteNextIcon)
+    }
+);
+
+
+
+document
+.getElementById("previousQuote")
+.addEventListener(
+    "click",
+    () => {
+
+        currentQuote--;
+
+        if (
+            currentQuote < 0
+        ) {
+
+            currentQuote =
+                quotes.length - 1;
+        }
+
+        showQuote(currentQuote);
+
+        animateIcon(quotePreviousIcon)
+    }
+);
+
+const quoteButton =
+    document.getElementById(
+        "quotePlayPause"
+    );
+
+const quotePlayIcon =
+    document.getElementById(
+        "quotePlayIcon"
+    );
+
+let quoteRunning = false;
+
+document
+.getElementById("quotePlayPause")
+.addEventListener(
+    "click",
+    () => {
+
+        if (!quoteRunning) {
+
+            // START
+
+            quoteRunning = true;
+
+            quoteTimer =
+                setInterval(
+                    nextQuote,
+                    120000
+                );
+
+            quotePlayIcon.classList.remove(
+                "fa-play"
+            );
+
+            quotePlayIcon.classList.add(
+                "fa-pause"
+            );
+
+            animateIcon(
+                quotePlayIcon
+            );
+
+        } else {
+
+            // PAUSE
+
+            quoteRunning = false;
+
+            clearInterval(
+                quoteTimer
+            );
+
+            quotePlayIcon.classList.remove(
+                "fa-pause"
+            );
+
+            quotePlayIcon.classList.add(
+                "fa-play"
+            );
+
+            animateIcon(
+                quotePlayIcon
+            );
+        }
+    }
+);
+
+if (quoteRunning) {
+
+    clearInterval(
+        quoteTimer
+    );
+
+    quoteTimer =
+        setInterval(
+            nextQuote,
+            120000
+        );
+}
+
+function nextQuote() {
+
+    currentQuote++;
+
+    if (
+        currentQuote >=
+        quotes.length
+    ) {
+
+        currentQuote = 0;
+    }
+
+    showQuote(currentQuote);
+}
+
+document
+.getElementById("nextQuote")
+.addEventListener(
+    "click",
+    nextQuote
+);

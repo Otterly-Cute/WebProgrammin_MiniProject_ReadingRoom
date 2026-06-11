@@ -11,6 +11,12 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -46,12 +52,24 @@
 
                     <div class="control-row">
 
-                        <button id="randomVideoBtn">
-                            Random
+                        <button
+                            id="randomVideoBtn"
+                            class="icon-button">
+
+                            <i id="randomVideoIcon" class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
+
                         </button>
 
-                        <select id="videoSelect">
-                        </select>
+                        <div class="select-wrapper">
+
+                            <select
+                                id="videoSelect"
+                                class="custom-select">
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
 
                     </div>
                 </div> 
@@ -65,12 +83,22 @@
                     
                     <div class="control-row">
 
-                        <button id="randomSoundBtn">
-                            Random
+                        <button
+                            id="randomSoundBtn"
+                            class="icon-button">
+
+                            <i id="randomSoundIcon" class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
+
                         </button>
 
-                        <button id="soundDropdownBtn">
-                            Ambient Sounds
+                        <button
+                            id="soundDropdownBtn"
+                            class="dropdown-trigger">
+
+                            <span>Sound Effects</span>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
                         </button>
 
                         <div id="soundDropdown" class="dropdown-panel">
@@ -87,15 +115,28 @@
 
                     <div class="control-row">
 
-                        <button id="randomMusicBtn">
-                            Random
+                        <button
+                            id="randomMusicBtn"
+                            class="icon-button">
+
+                            <i id="randomMusicIcon" class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
+
                         </button>
 
-                        <select id="musicSelect">
-                        </select>
+                        <div class="select-wrapper">
+
+                            <select
+                                id="musicSelect"
+                                class="custom-select">
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
 
                         <input
                             id="musicVolume"
+                            class="volume-slider"
                             type="range"
                             min="0"
                             max="100"
@@ -113,25 +154,25 @@
         <div class="quote-box">
 
             <p id="quoteText">
-                "A reader lives a thousand lives before he dies."
+                Quote goes here
             </p>
 
             <p id="quoteSource">
-                — George R. R. Martin
+                Character - Book title
             </p>
 
             <div class="quote-buttons">
 
                 <button id="previousQuote">
-                    <i class="fa-solid fa-backward"></i>
+                    <i id="quotePreviousIcon" class="fa-solid fa-backward"></i>
                 </button>
 
-                <button id="pausePlayQuote">
-                    <i class="fa-solid fa-pause"></i>
+                <button id="quotePlayPause">
+                    <i id="quotePlayIcon" class="fa-solid fa-play"></i>
                 </button>
 
                 <button id="nextQuote">
-                    <i class="fa-solid fa-forward"></i>
+                    <i id="quoteNextIcon" class="fa-solid fa-forward"></i>
                 </button>
 
             </div>
@@ -157,15 +198,11 @@
                 <div class="clock-buttons">
 
                     <button id="resetClock">
-                        <i class="fa-solid fa-rotate-left"></i>
+                        <i id="resetIcon" class="fa-solid fa-rotate-left"></i>
                     </button>
 
                     <button id="startClock">
-                        <i class="fa-solid fa-play"></i>
-                    </button>
-
-                    <button id="pauseClock">
-                        <i class="fa-solid fa-pause"></i>
+                        <i id="playIcon" class="fa-solid fa-play"></i>
                     </button>
 
                 </div>
