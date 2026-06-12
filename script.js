@@ -854,18 +854,53 @@ document.addEventListener(
 const quotes = [
 
     {
-        text: "There you are. I've been looking for you.",
-        source: "A Court of Thorns and Roses"
+        text: "The quickest way to a man's heart is through the fourth and fifth ribs.",
+        source: "- Nesta Archeron, A Court of Mist and Fury"
+    },
+
+    {
+        text: "We do not eat our allies.",
+        source: "- Tairn, Iron Flame"
     },
 
     {
         text: "To the stars who listen and the dreams that are answered.",
-        source: "A Court of Mist and Fury"
+        source: "- Rhysand, A Court of Mist and Fury"
     },
 
     {
-        text: "You are my home and my adventure all at once.",
-        source: "Romantasy Quote"
+        text: "Love in itself is a leap of faith.",
+        source: "- Bonded by Thorns"
+    },
+
+    {
+        text: "The mountains told me your name. The forest sang your song. My heart has been searching for you since the first dawn.",
+        source: "- Forged by Malice"
+    },
+
+    {
+        text: "It’s written all over his face—he would disintegrate anyone—everyone—if it means saving me. He would literally set fire to the world.",
+        source: "- Covet"
+    },
+
+    {
+        text: "Libraries were full of ideas - perhaps the most dangerous and powerful of all weapons.",
+        source: "- Celaena Sardothien, Throne of Glass"
+    },
+
+    {
+        text: "the thought of you not coming back makes me forget how to breathe.",
+        source: "-  The Forbidden Wolf King "
+    },
+
+    {
+        text: "You are my home.",
+        source: "- Hawke Flynn, From Blood and Ash"
+    },
+
+    {
+        text: "I chose you not as my next, but as my last, and should you fall, then I will follow.",
+        source: "- Tairn, Iron Flame"
     }
 
 ];
@@ -886,7 +921,7 @@ function showQuote(index) {
     document.getElementById(
         "quoteText"
     ).textContent =
-        quotes[index].text;
+        `“${quotes[index].text}”`;
 
     document.getElementById(
         "quoteSource"
@@ -1027,27 +1062,5 @@ if (quoteRunning) {
             120000
         );
 }
-
-function nextQuote() {
-
-    currentQuote++;
-
-    if (
-        currentQuote >=
-        quotes.length
-    ) {
-
-        currentQuote = 0;
-    }
-
-    showQuote(currentQuote);
-}
-
-document
-.getElementById("nextQuote")
-.addEventListener(
-    "click",
-    nextQuote
-);
 
 console.log("Reached end of file");
