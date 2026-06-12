@@ -1,109 +1,124 @@
+console.log("JS loaded");
+
 /* ==================================
    VIDEO DATA
    ================================== */
 
 const videos = [
-    {
-        name: "Snowy Study",
-        file: "videos/snowy_study.mp4"
-    },
-    {
-        name: "Cozy Library",
-        file: "videos/cozy_library.mp4"
-    },
-    {
-        name: "Rainy Road",
-        file: "videos/rainy_road.mp4"
-    },
-    {
-        name: "Thunder Study",
-        file: "videos/thunder_study.mp4"
-    },
-    {
-        name: "Snowy Library",
-        file: "videos/snowy_library.mp4"
-    },
-    {
-        name: "Starry Balcony",
-        file: "videos/starry_balcony.mp4"
-    },
-    {
-        name: "Ancient Baths",
-        file: "videos/ancient_baths.mp4"
-    },
-    {
-        name: "Hidden Oasis",
-        file: "videos/hidden_oasis.mp4"
-    },
-    {
-        name: "Sunset Fireplace",
-        file: "videos/sunset_fireplace.mp4"
-    },
-    {
-        name: "Castle Fireplace",
-        file: "videos/castle_fireplace.mp4"
-    },
-    {
-        name: "Magic Forest",
-        file: "videos/magic_forest.mp4"
-    },
-    {
-        name: "Castle Gardens",
-        file: "videos/castle_gardens.mp4"
-    },
-    {
-        name: "Training Grounds",
-        file: "videos/training_grounds.mp4"
-    },
-    {
-        name: "Dungeon Cell",
-        file: "videos/dungeon_cell.mp4"
-    }
+{
+    name: "Snowy Study",
+    file: "videos/snowy_study.mp4"
+},
+{
+    name: "Cozy Library",
+    file: "videos/cozy_library.mp4"
+},
+{
+    name: "Rainy Road",
+    file: "videos/rainy_road.mp4"
+},
+{
+    name: "Thunder Study",
+    file: "videos/thunder_study.mp4"
+},
+{
+    name: "Snowy Library",
+    file: "videos/snowy_library.mp4"
+},
+{
+    name: "Starry Balcony",
+    file: "videos/starry_balcony.mp4"
+},
+{
+    name: "Ancient Baths",
+    file: "videos/ancient_baths.mp4"
+},
+{
+    name: "Hidden Oasis",
+    file: "videos/hidden_oasis.mp4"
+},
+{
+    name: "Sunset Fireplace",
+    file: "videos/sunset_fireplace.mp4"
+},
+{
+    name: "Castle Fireplace",
+    file: "videos/castle_fireplace.mp4"
+},
+{
+    name: "Magic Forest",
+    file: "videos/magic_forest.mp4"
+},
+{
+    name: "Castle Gardens",
+    file: "videos/castle_gardens.mp4"
+},
+{
+    name: "Training Grounds",
+    file: "videos/training_grounds.mp4"
+},
+{
+    name: "Dungeon Cell",
+    file: "videos/dungeon_cell.mp4"
+}
 ];
+
+
+
 /* ==================================
-   RANDOM VIDEO ON PAGE LOAD
+   VIDEO ELEMENTS
    ================================== */
+
+console.log("VIDEO SECTION START");
 
 const backgroundVideo =
-    document.getElementById("backgroundVideo");
+    document.getElementById(
+        "backgroundVideo"
+    );
 
-function randomVideo() {
+console.log(backgroundVideo);
 
-    const randomIndex =
-        Math.floor(Math.random() * videos.length);
+const videoSelect =
+    document.getElementById(
+        "videoSelect"
+    );
 
-    backgroundVideo.src =
-        videos[randomIndex].file;
-}
 
-randomVideo();
+
 
 /* ==================================
-   Fill in the dropdown for video
+   FILL VIDEO DROPDOWN
    ================================== */
-const videoSelect =
-    document.getElementById("videoSelect");
-
-/* Add all videos to dropdown */
 
 videos.forEach((video, index) => {
 
     const option =
-        document.createElement("option");
+        document.createElement(
+            "option"
+        );
 
     option.value = index;
 
-    option.textContent = video.name;
+    option.textContent =
+        video.name;
 
-    videoSelect.appendChild(option);
+    videoSelect.appendChild(
+        option
+    );
 });
 
 
 /* ==================================
-   Change video
+   CHANGE VIDEO
    ================================== */
 
 function setVideo(index) {
+
+    console.log(
+        "SETTING VIDEO:",
+        index,
+        videos[index].name
+    );
 
     backgroundVideo.src =
         videos[index].file;
@@ -115,9 +130,11 @@ function setVideo(index) {
     backgroundVideo.play();
 }
 
+
 /* ==================================
-   Dropdown function for video
+   DROPDOWN FUNCTION
    ================================== */
+
 videoSelect.addEventListener(
     "change",
     () => {
@@ -125,28 +142,25 @@ videoSelect.addEventListener(
         const selectedIndex =
             videoSelect.value;
 
-        setVideo(selectedIndex);
+        setVideo(
+            selectedIndex
+        );
     }
 );
 
+
 /* ==================================
-   Random button for video
+   RANDOM BUTTON
    ================================== */
+
 const randomVideoBtn =
     document.getElementById(
         "randomVideoBtn"
     );
 
-const randomVideoIcon =
-    document.getElementById(
-        "randomVideoIcon"
-    );
-
 randomVideoBtn.addEventListener(
     "click",
     () => {
-
-        shakeIcon(randomVideoBtn)
 
         const randomIndex =
             Math.floor(
@@ -154,15 +168,17 @@ randomVideoBtn.addEventListener(
                 videos.length
             );
 
-        setVideo(randomIndex);
-
-
+        setVideo(
+            randomIndex
+        );
     }
 );
 
+
 /* ==================================
-   Random start video
+   RANDOM START VIDEO
    ================================== */
+
 const startIndex =
     Math.floor(
         Math.random() *
@@ -170,6 +186,8 @@ const startIndex =
     );
 
 setVideo(startIndex);
+
+console.log("VIDEO SECTION END");
 
 /* ==================================
    DIGITAL CLOCK
@@ -1004,3 +1022,5 @@ document
     "click",
     nextQuote
 );
+
+console.log("Reached end of file");
