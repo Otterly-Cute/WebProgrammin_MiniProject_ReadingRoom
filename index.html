@@ -17,6 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -109,9 +111,21 @@
                 <!-- BLOCK 3 -->
                 <div class="control-block">
 
-                    <p class="control-title">
-                        Music
-                    </p>
+                    <div class="music-header">
+
+                        <p class="control-title">
+                            Music
+                        </p>
+
+                        <input
+                            id="musicVolume"
+                            class="volume-slider"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="50">
+
+                    </div>
 
                     <div class="control-row">
 
@@ -119,7 +133,8 @@
                             id="randomMusicBtn"
                             class="icon-button">
 
-                            <i id="randomMusicIcon" class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
+                            <i id="randomMusicIcon"
+                            class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
 
                         </button>
 
@@ -134,13 +149,6 @@
 
                         </div>
 
-                        <input
-                            id="musicVolume"
-                            class="volume-slider"
-                            type="range"
-                            min="0"
-                            max="100"
-                            value="50">
                     </div>
 
                 </div>

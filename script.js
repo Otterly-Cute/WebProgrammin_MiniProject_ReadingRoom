@@ -493,6 +493,33 @@ sounds.forEach(sound => {
     sound.audio.volume = 0.5;
 });
 
+document.querySelectorAll(".volume-slider")
+    .forEach(slider => {
+
+        function updateSlider() {
+
+            const percent =
+                (slider.value - slider.min) /
+                (slider.max - slider.min) * 100;
+
+            slider.style.background =
+                `linear-gradient(
+                    90deg,
+                    rgb(203,160,153) 0%,
+                    rgb(255,230,200) ${percent}%,
+                    rgba(235,228,220,0.25) ${percent}%,
+                    rgba(235,228,220,0.25) 100%
+                )`;
+        }
+
+        updateSlider();
+
+        slider.addEventListener(
+            "input",
+            updateSlider
+        );
+    });
+
 /* Open/close dropdown */
 
 
