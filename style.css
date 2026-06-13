@@ -34,7 +34,6 @@ body {
     z-index: -2;
 }
 
-
 /* ==================================
    TOP PANEL
    ================================== */
@@ -126,7 +125,6 @@ h1 {
     align-items: center;
 }
 
-
 /* ==================================
    BUTTONS
    ================================== */
@@ -172,7 +170,6 @@ button {
     color: white;
 }
 
-
 @keyframes iconShake {
 
     0% {
@@ -205,248 +202,6 @@ button {
     animation:
         iconShake 0.5s ease;
 }
-
-/* ==================================
-   QUOTE BOX
-   ================================== */
-
-.quote-box {
-    position: absolute;
-
-    left: 40px;
-    bottom: 30px;
-
-    width: 400px;
-    height: 150px;
-
-    padding: 15px;
-
-    background: rgba(0,0,0,0.8);
-
-    border: 1px solid rgba(255, 230, 200,0.3);
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    transition:
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.quote-box:hover {
-
-    border-color: rgba(255, 230, 200, 0.8);
-
-    box-shadow:
-        0 0 5px rgba(203,160,153,0.8),
-        0 0 10px rgba(203,160,153,0.5),
-        0 0 20px rgba(203,160,153,0.3);
-}
-
-
-
-#quoteText {
-
-    min-height: 60px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    font-style: italic;
-
-    color: rgb(235, 228, 220);
-
-    line-height: 1.4;
-}
-
-#quoteSource {
-    text-align: right;
-
-    font-size: 0.8rem;
-
-    margin-top: 6px;
-
-    color: rgb(235, 228, 220);
-}
-
-.quote-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-}
-
-.quote-buttons button {
-
-    width: 40px;
-    height: 40px;
-
-    background: rgba(255, 255, 255, 0);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border: none;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
-
-.quote-buttons i {
-
-    font-size: 30px;
-
-    color: rgb(235, 228, 220);
-}
-
-.quote-buttons button {
-
-    transition:
-        transform 0.2s ease;
-}
-
-.quote-buttons button:hover {
-
-    transform: scale(1.15);
-}
-
-
-
-
-/* ==================================
-   CLOCK
-   ================================== */
-
-.clock-container {
-    position: absolute;
-
-    
-
-    right: 40px;
-    bottom: 30px;
-}
-
-
-
-
-.clock-box {
-    width: 200px;
-    height: 150px;
-
-    padding: 20px;
-
-    background: rgba(0, 0, 0, 0.8);
-
-    border: 1px solid rgba(255, 230, 200,0.3);
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-
-    transition:
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.clock-box:hover {
-
-    border-color: rgba(255, 230, 200, 0.8);
-
-    box-shadow:
-        0 0 5px rgba(203,160,153,0.8),
-        0 0 10px rgba(203,160,153,0.5),
-        0 0 20px rgba(203,160,153,0.3);
-}
-
-#clock {
-    flex: 1;
-
-    display: flex;
-    justify-content: center;
-
-    font-size: 3rem;
-
-    color: rgb(235, 228, 220);
-
-    font-family: "Share Tech Mono", monospace;
-}
-
-.clock-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.clock-buttons button {
-
-    width: 40px;
-    height: 40px;
-
-    background: rgba(0, 0, 0, 0);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border: none;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
-.clock-buttons i {
-
-    font-size: 30px;
-
-    color: rgb(235, 228, 220);
-}
-
-#startClock i {
-
-    transition:
-        transform 0.2s ease;
-}
-
-.clock-buttons button:hover {
-
-    transform: scale(1.15);
-}
-
-@keyframes iconPop {
-
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-.icon-pop {
-
-    animation:
-        iconPop 0.25s ease;
-}
-
 
 /* ==================================
    DROPDOWN PANEL
@@ -509,12 +264,10 @@ button {
     -moz-appearance: none;
 }
 
-
 #soundDropdownBtn {
 
     height: 40px;
 }
-
 
 .dropdown-trigger {
 
@@ -537,6 +290,12 @@ button {
     cursor: pointer;
 
     box-sizing: border-box;
+}
+
+#soundDropdownBtn span,
+#soundDropdownBtn i {
+
+    pointer-events: none;
 }
 
 #soundDropdownBtn {
@@ -573,8 +332,6 @@ button {
     left: 54px;
 }
 
-
-
 .select-wrapper {
 
     position: relative;
@@ -607,7 +364,6 @@ button {
     align-items: center;
 }
 
-
 .dropdown-control {
 
     width: 180px;
@@ -628,8 +384,6 @@ button {
     box-sizing: border-box;
 }
 
-
-
 #soundDropdownBtn {
 
     display: flex;
@@ -640,7 +394,6 @@ button {
 
     cursor: pointer;
 }
-
 
 .sound-item input[type="checkbox"] {
 
@@ -733,11 +486,6 @@ button {
         drop-shadow(0 0 10px rgba(203,160,153,0.5))
         drop-shadow(0 0 20px rgba(203,160,153,0.3));
 }
-
-
-
-
-
 
 /* ==================================
    Sliders
@@ -946,13 +694,7 @@ button {
 }
 
 
-
-
-
-
-
-
-
+/*------ both -----*/
 
 .volume-slider::-webkit-slider-runnable-track,
 .volume-slider::-moz-range-track {
@@ -966,7 +708,7 @@ button {
         );
 }
 
-
+/*------ RANDOM ICONS -----*/
 
 #randomVideoIcon {
 
@@ -1007,12 +749,6 @@ button {
         glowPulse 4s ease-in-out infinite;
 }
 
-
-
-
-
-
-
 @keyframes glowPulse {
 
     0% {
@@ -1026,4 +762,424 @@ button {
     100% {
         opacity: 0.85;
     }
+}
+
+/* ==================================
+   Bottom boxes
+   ================================== */
+.bottom-flex {
+
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+    bottom: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto
+        1fr;
+
+    align-items: end;
+}
+
+/* ==================================
+   QUOTE BOX
+   ================================== */
+
+.quote-box {
+
+    justify-self: start;
+    grid-column: 1;
+
+    width: 400px;
+    height: 180px;
+
+    padding: 15px;
+
+    background: rgba(0,0,0,0.8);
+
+    border: 1px solid rgba(255, 230, 200,0.3);
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.quote-box:hover {
+
+    border-color: rgba(255, 230, 200, 0.8);
+
+    box-shadow:
+        0 0 5px rgba(203,160,153,0.8),
+        0 0 10px rgba(203,160,153,0.5),
+        0 0 20px rgba(203,160,153,0.3);
+}
+
+#quoteText {
+
+    min-height: 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    font-style: italic;
+
+    color: rgb(235, 228, 220);
+
+    line-height: 1.4;
+}
+
+#quoteSource {
+    text-align: right;
+
+    font-size: 0.8rem;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    color: rgb(235, 228, 220);
+}
+
+.quote-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.quote-buttons button {
+
+    width: 40px;
+    height: 40px;
+
+    background: rgba(255, 255, 255, 0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+.quote-buttons i {
+
+    font-size: 30px;
+
+    color: rgb(235, 228, 220);
+}
+
+.quote-buttons button {
+
+    transition:
+        transform 0.2s ease;
+}
+
+.quote-buttons button:hover {
+
+    transform: scale(1.15);
+}
+
+
+/* ==================================
+   CLOCK
+   ================================== */
+
+.clock-container {
+    justify-self: center;
+    grid-column: 2;
+}
+
+.clock-box {
+
+    width: 200px;
+    height: 140px;
+
+    padding: 15px;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    border: 1px solid rgba(255, 230, 200,0.3);
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.clock-box:hover {
+
+    border-color: rgba(255, 230, 200, 0.8);
+
+    box-shadow:
+        0 0 5px rgba(203,160,153,0.8),
+        0 0 10px rgba(203,160,153,0.5),
+        0 0 20px rgba(203,160,153,0.3);
+}
+
+#clock {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 3.5rem;
+
+    color: rgb(235, 228, 220);
+
+    font-family: "Share Tech Mono", monospace;
+}
+
+.clock-buttons {
+
+    display: flex;
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.clock-buttons button {
+
+    width: 40px;
+    height: 40px;
+
+    background: rgba(0, 0, 0, 0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.clock-buttons i {
+
+    font-size: 30px;
+
+    color: rgb(235, 228, 220);
+}
+
+#startClock i {
+
+    transition:
+        transform 0.2s ease;
+}
+
+.clock-buttons button:hover {
+
+    transform: scale(1.15);
+}
+
+@keyframes iconPop {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.icon-pop {
+
+    animation:
+        iconPop 0.25s ease;
+}
+
+/* ==================================
+   Book Box
+   ================================== */
+
+.book-box {
+
+    justify-self: end;
+    grid-column: 3;
+
+    width: 400px;
+    height: 180px;
+
+    padding: 15px;
+
+    background: rgba(0,0,0,0.8);
+
+    border: 1px solid rgba(255,230,200,0.3);
+
+    border-radius: 20px;
+
+    color: rgb(235,228,220);
+
+    box-sizing: border-box;
+}
+
+.book-box:hover {
+
+    border-color: rgba(255, 230, 200, 0.8);
+
+    box-shadow:
+        0 0 5px rgba(203,160,153,0.8),
+        0 0 10px rgba(203,160,153,0.5),
+        0 0 20px rgba(203,160,153,0.3);
+}
+
+.book-content {
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+}
+
+.book-right {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    gap: 15px;
+}
+
+.book-search {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.book-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+#bookInput {
+
+    flex: 1;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    background: rgba(0,0,0,0.6);
+
+    color: white;
+
+    border: 1px solid rgba(203,160,153,0.3);
+
+    border-radius: 10px;
+}
+
+#searchBookBtn {
+
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+
+    border: none;
+
+    color: rgb(255,230,200);
+
+    cursor: pointer;
+}
+
+.book-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    flex: 1;
+}
+
+#bookTitle {
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    color: rgb(255,230,200);
+
+    margin: 0;
+}
+
+#bookAuthor {
+
+    color: rgb(235,228,220);
+
+    margin: 0;
+}
+
+#bookPublished {
+
+    color: rgb(203,160,153);
+
+    font-size: 0.9rem;
+
+    margin: 0;
+}
+
+#bookCover {
+
+    width: 100px;
+
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    flex-shrink: 0;
+}
+
+#bookResult {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-top: 15px;
 }

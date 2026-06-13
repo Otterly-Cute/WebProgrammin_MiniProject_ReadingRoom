@@ -64,7 +64,6 @@ const videos = [
 ];
 
 
-
 /* ==================================
    VIDEO ELEMENTS
    ================================== */
@@ -82,8 +81,6 @@ const videoSelect =
     document.getElementById(
         "videoSelect"
     );
-
-
 
 
 /* ==================================
@@ -227,7 +224,6 @@ const playIcon =
         "playIcon"
     );
 
-
 const resetIcon =
     document.getElementById(
         "resetIcon"
@@ -258,7 +254,6 @@ function shakeIcon(icon) {
         "icon-shake"
     );
 }
-
 
 startClockBtn.addEventListener(
     "click",
@@ -312,8 +307,6 @@ startClockBtn.addEventListener(
         }
     }
 );
-
-
 
 /* Reset */
 
@@ -408,7 +401,6 @@ document.getElementById(
 
 const soundDropdown =
     document.getElementById("soundDropdown");
-console.log(sounds);
 sounds.forEach((sound, index) => {
 
     const soundItem =
@@ -458,7 +450,6 @@ sounds.forEach((sound, index) => {
             }
         }
     );
-
 });
 
 
@@ -480,7 +471,6 @@ sounds.forEach((sound, index) => {
 
         }
     );
-
 });
 
 sounds.forEach(sound => {
@@ -522,8 +512,6 @@ document.querySelectorAll(".volume-slider")
 
 /* Open/close dropdown */
 
-
-
 soundButton.addEventListener(
     "click",
     () => {
@@ -556,9 +544,6 @@ document.addEventListener(
         }
     }
 );
-
-
-
 
 /* Random ambient sounds */
 
@@ -845,8 +830,6 @@ document.addEventListener(
 );
 
 
-
-
 /* ==================================
    Quote Box
    ================================== */
@@ -902,7 +885,6 @@ const quotes = [
         text: "I chose you not as my next, but as my last, and should you fall, then I will follow.",
         source: "- Tairn, Iron Flame"
     }
-
 ];
 
 const quotePreviousIcon =
@@ -914,7 +896,6 @@ const quoteNextIcon =
     document.getElementById(
         "quoteNextIcon"
     );
-
 
 function showQuote(index) {
 
@@ -949,7 +930,6 @@ document
             currentQuote >=
             quotes.length
         ) {
-
             currentQuote = 0;
         }
 
@@ -958,8 +938,6 @@ document
         animateIcon(quoteNextIcon)
     }
 );
-
-
 
 document
 .getElementById("previousQuote")
@@ -1062,5 +1040,120 @@ if (quoteRunning) {
             120000
         );
 }
+
+/*==================================
+   Book Box
+================================== */
+
+const searchBookBtn =
+    document.getElementById(
+        "searchBookBtn"
+    );
+
+searchBookBtn.addEventListener(
+    "click",
+    searchBook
+);
+
+const bookInput =
+    document.getElementById(
+        "bookInput"
+    );
+
+bookInput.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Enter"
+        ) {
+            searchBook();
+        }
+    }
+);
+
+async function searchBook() {
+
+    const query =
+        document.getElementById(
+            "bookInput"
+        ).value;
+
+    if (!query) return;
+
+    const response =
+        await fetch(
+            `https://openlibrary.org/search.json?title=${encodeURIComponent(query)}`
+        );
+
+    console.log(response);
+
+    const data =
+        await response.json();
+
+    if (
+        !data.docs ||
+        data.docs.length === 0
+    ) {
+
+        document.getElementById(
+            "bookTitle"
+        ).textContent =
+            "No books found";
+
+        return;
+    }
+
+
+    if (
+        !data.docs ||
+        data.docs.length === 0
+    ) {
+
+        document.getElementById(
+            "bookTitle"
+        ).textContent =
+            "No books found";
+
+        return;
+    }
+
+    const book =
+        data.docs[0];
+
+    document.getElementById(
+        "bookTitle"
+    ).textContent =
+        book.title || "";
+
+    document.getElementById(
+        "bookAuthor"
+    ).textContent =
+        book.author_name
+            ? book.author_name.join(", ")
+            : "Unknown Author";
+
+    document.getElementById(
+        "bookPublished"
+    ).textContent =
+        `Published: ${
+            book.first_publish_year || "Unknown"
+        }`;
+
+    if (book.cover_i) {
+
+        document.getElementById(
+            "bookCover"
+        ).src =
+            `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
+
+    } else {
+
+        document.getElementById(
+            "bookCover"
+        ).src = "";
+    }
+}
+
 
 console.log("Reached end of file");

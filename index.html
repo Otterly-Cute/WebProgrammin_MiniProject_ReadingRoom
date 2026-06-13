@@ -22,9 +22,6 @@
 </head>
 <body>
 
-    <!-- ==========================================
-         BACKGROUND VIDEO
-         ========================================== -->
     <video
         id="backgroundVideo"
         autoplay
@@ -33,13 +30,8 @@
 
     </video>
 
-
-    <!-- Dark overlay -->
     <div class="page-overlay">
 
-        <!-- ==========================================
-             HEADER + CONTROLS
-             ========================================== -->
         <div class="top-panel">
 
             <h1>Reading Room</h1>
@@ -59,7 +51,6 @@
                             class="icon-button">
 
                             <i id="randomVideoIcon" class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
-
                         </button>
 
                         <div class="select-wrapper">
@@ -74,6 +65,7 @@
                         </div>
 
                     </div>
+
                 </div> 
 
                 <!-- BLOCK 2 -->
@@ -90,7 +82,6 @@
                             class="icon-button">
 
                             <i id="randomSoundIcon" class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
-
                         </button>
 
                         <button
@@ -100,12 +91,14 @@
                             <span>Sound Effects</span>
 
                             <i class="fa-solid fa-chevron-down"></i>
-
                         </button>
 
                         <div id="soundDropdown" class="dropdown-panel">
+
                         </div>
+
                     </div>
+
                 </div>
 
                 <!-- BLOCK 3 -->
@@ -135,7 +128,6 @@
 
                             <i id="randomMusicIcon"
                             class="fa-solid fa-wand-sparkles fa-flip-horizontal"></i>
-
                         </button>
 
                         <div class="select-wrapper">
@@ -154,64 +146,104 @@
                 </div>
 
             </div>
-        </div>
-
-        <!-- ==========================================
-             QUOTE BOX
-             ========================================== -->
-        <div class="quote-box">
-
-            <p id="quoteText">
-                Quote goes here
-            </p>
-
-            <p id="quoteSource">
-                Character - Book title
-            </p>
-
-            <div class="quote-buttons">
-
-                <button id="previousQuote">
-                    <i id="quotePreviousIcon" class="fa-solid fa-backward"></i>
-                </button>
-
-                <button id="quotePlayPause">
-                    <i id="quotePlayIcon" class="fa-solid fa-play"></i>
-                </button>
-
-                <button id="nextQuote">
-                    <i id="quoteNextIcon" class="fa-solid fa-forward"></i>
-                </button>
-
-            </div>
 
         </div>
 
-        <!-- ==========================================
-             CLOCK BOX
-             ========================================== -->
-        <div class="clock-container">
+        <div class="bottom-flex">
 
-            <!-- Animation sits above clock -->
-            <div id="animationContainer">
+            <div class="quote-box">
 
-            </div>
+                <p id="quoteText">
+                    Quote goes here
+                </p>
 
-            <div class="clock-box">
+                <p id="quoteSource">
+                    Character - Book title
+                </p>
 
-                <div id="clock">
-                    00:00
+                <div class="quote-buttons">
+
+                    <button id="previousQuote">
+                        <i id="quotePreviousIcon" class="fa-solid fa-backward"></i>
+                    </button>
+
+                    <button id="quotePlayPause">
+                        <i id="quotePlayIcon" class="fa-solid fa-play"></i>
+                    </button>
+
+                    <button id="nextQuote">
+                        <i id="quoteNextIcon" class="fa-solid fa-forward"></i>
+                    </button>
+
                 </div>
 
-                <div class="clock-buttons">
+            </div>
 
-                    <button id="resetClock">
-                        <i id="resetIcon" class="fa-solid fa-rotate-left"></i>
-                    </button>
+            <div class="clock-container">
 
-                    <button id="startClock">
-                        <i id="playIcon" class="fa-solid fa-play"></i>
-                    </button>
+                <!-- Animation sits above clock -->
+                <div id="animationContainer">
+
+                </div>
+
+                <div class="clock-box">
+
+                    <div id="clock">
+                        00:00
+                    </div>
+
+                    <div class="clock-buttons">
+
+                        <button id="resetClock">
+                            <i id="resetIcon" class="fa-solid fa-rotate-left"></i>
+                        </button>
+
+                        <button id="startClock">
+                            <i id="playIcon" class="fa-solid fa-play"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="book-box">
+
+                <div class="book-content">
+
+                    <img
+                        id="bookCover"
+                        alt="Book Cover">
+
+                    <div class="book-right">
+
+                        <div class="book-search">
+
+                            <input
+                                id="bookInput"
+                                type="text"
+                                placeholder="Search a book...">
+
+                            <button id="searchBookBtn">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                            </button>
+
+                        </div>
+
+                        <div class="book-info">
+
+                            <p id="bookTitle"></p>
+
+                            <p id="bookAuthor"></p>
+
+                            <p id="bookPublished"></p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
