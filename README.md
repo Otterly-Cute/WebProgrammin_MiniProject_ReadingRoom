@@ -1,5 +1,19 @@
 # WebProgrammin_MiniProject_ReadingRoom
 
+Running the Application
+
+Requirements:
+Visual Studio Code
+Live Server extension (ritwickdey.liveserver)
+
+Launch Instructions:
+1. Open the project folder in Visual Studio Code.
+2. Install the Live Server extension if it is not already installed.
+3. Open index.html.
+4. Right-click inside the file and select Open with Live Server.
+5. The application will open automatically in your default browser.
+
+
 Browser Compatibility
 
 The application has been developed and tested primarily in Microsoft Edge (Chromium-based browsers) and is fully functional in that environment.
