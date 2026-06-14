@@ -521,9 +521,6 @@ soundButton.addEventListener(
 
         soundDropdown.style.display =
             isOpen ? "none" : "block";
-
-        
-        
     }
 );
 
@@ -1090,20 +1087,6 @@ async function searchBook() {
 
     const data =
         await response.json();
-
-    if (
-        !data.docs ||
-        data.docs.length === 0
-    ) {
-
-        document.getElementById(
-            "bookTitle"
-        ).textContent =
-            "No books found";
-
-        return;
-    }
-
 
     if (
         !data.docs ||
